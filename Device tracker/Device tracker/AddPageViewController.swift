@@ -13,6 +13,8 @@ class AddPageViewController: UIViewController {
     var quantityPicker = UIPickerView()
     @IBOutlet weak var quantityField: UITextField!
     
+    @IBOutlet weak var cameraTapped: UIBarButtonItem!
+    var pickerController = UIImagePickerController()
     var quantities: [String] = []
     
     override func viewDidLoad() {
@@ -35,6 +37,10 @@ class AddPageViewController: UIViewController {
                 navigationController?.popViewController(animated: true)
             }
         }
+    }
+    @IBAction func cameraTapped(_ sender: Any) {
+        pickerController.sourceType = .camera
+        present(pickerController, animated: true, completion: nil)
     }
 }
     

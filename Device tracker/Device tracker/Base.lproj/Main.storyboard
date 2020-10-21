@@ -94,24 +94,38 @@
                                     <action selector="addTapped:" destination="psk-D3-vaj" eventType="touchUpInside" id="oJb-mM-yDn"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nx7-at-TGw">
+                                <rect key="frame" x="20" y="384" width="270" height="180"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mE8-uF-nSX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mE8-uF-nSX" firstAttribute="trailing" secondItem="nx7-at-TGw" secondAttribute="trailing" constant="99.5" id="437-CD-vbE"/>
                             <constraint firstItem="NWc-cU-JGG" firstAttribute="leading" secondItem="mE8-uF-nSX" secondAttribute="leading" constant="20" id="8XT-VD-Fzr"/>
                             <constraint firstItem="mE8-uF-nSX" firstAttribute="trailing" secondItem="MdX-ck-FH6" secondAttribute="trailing" constant="30.5" id="BJg-ef-zey"/>
+                            <constraint firstItem="nx7-at-TGw" firstAttribute="top" secondItem="NWc-cU-JGG" secondAttribute="bottom" constant="159" id="Ruo-ZO-wLy"/>
                             <constraint firstItem="mE8-uF-nSX" firstAttribute="bottom" secondItem="MdX-ck-FH6" secondAttribute="bottom" constant="587" id="XOG-QW-PaG"/>
                             <constraint firstItem="0My-tw-kgU" firstAttribute="top" secondItem="mE8-uF-nSX" secondAttribute="top" constant="103" id="ZTa-Ed-edD"/>
                             <constraint firstItem="MdX-ck-FH6" firstAttribute="top" secondItem="0My-tw-kgU" secondAttribute="bottom" constant="20" id="dGQ-Pr-MJV"/>
                             <constraint firstItem="NWc-cU-JGG" firstAttribute="top" secondItem="mE8-uF-nSX" secondAttribute="top" constant="103" id="hXe-NV-MIe"/>
                             <constraint firstItem="MdX-ck-FH6" firstAttribute="leading" secondItem="mE8-uF-nSX" secondAttribute="leading" constant="329" id="jbd-RG-wje"/>
+                            <constraint firstItem="nx7-at-TGw" firstAttribute="leading" secondItem="mE8-uF-nSX" secondAttribute="leading" constant="20" id="jge-nD-0KO"/>
+                            <constraint firstItem="mE8-uF-nSX" firstAttribute="bottom" secondItem="nx7-at-TGw" secondAttribute="bottom" constant="298" id="rIS-VX-vG2"/>
                             <constraint firstItem="0My-tw-kgU" firstAttribute="leading" secondItem="NWc-cU-JGG" secondAttribute="trailing" constant="142" id="ury-NB-fLz"/>
                             <constraint firstItem="mE8-uF-nSX" firstAttribute="trailing" secondItem="0My-tw-kgU" secondAttribute="trailing" constant="20" id="wFS-vV-arv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="N9U-v8-qvk"/>
+                    <navigationItem key="navigationItem" id="N9U-v8-qvk">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="y9V-O7-BiS">
+                            <connections>
+                                <action selector="cameraTapped:" destination="psk-D3-vaj" id="LPD-FG-BxI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="DeviceNameField" destination="NWc-cU-JGG" id="nUa-D7-q3i"/>
+                        <outlet property="cameraTapped" destination="y9V-O7-BiS" id="rkU-1f-L4N"/>
                         <outlet property="quantityField" destination="0My-tw-kgU" id="y8N-c7-y57"/>
                     </connections>
                 </viewController>
