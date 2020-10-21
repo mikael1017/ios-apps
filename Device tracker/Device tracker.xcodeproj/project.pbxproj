@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5839DB39253A083800BE005D /* DeviceHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839DB38253A083800BE005D /* DeviceHomeTableViewController.swift */; };
 		5839DB3E253A08CC00BE005D /* AddPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839DB3D253A08CC00BE005D /* AddPageViewController.swift */; };
-		5839DB43253A4BD800BE005D /* AddPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839DB42253A4BD800BE005D /* AddPageViewController.swift */; };
 		584F474F25394D2900810852 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F474E25394D2900810852 /* AppDelegate.swift */; };
 		584F475125394D2900810852 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F475025394D2900810852 /* SceneDelegate.swift */; };
 		584F475325394D2900810852 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F475225394D2900810852 /* ViewController.swift */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		5839DB38253A083800BE005D /* DeviceHomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceHomeTableViewController.swift; sourceTree = "<group>"; };
 		5839DB3D253A08CC00BE005D /* AddPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPageViewController.swift; sourceTree = "<group>"; };
-		5839DB42253A4BD800BE005D /* AddPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPageViewController.swift; path = "../../../Documents/GitHub/ios-apps/Device tracker/AddPageViewController.swift"; sourceTree = "<group>"; };
 		584F474B25394D2900810852 /* Device tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Device tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		584F474E25394D2900810852 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		584F475025394D2900810852 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				584F475725394D2900810852 /* Device_tracker.xcdatamodeld */,
 				5839DB38253A083800BE005D /* DeviceHomeTableViewController.swift */,
 				5839DB3D253A08CC00BE005D /* AddPageViewController.swift */,
-				5839DB42253A4BD800BE005D /* AddPageViewController.swift */,
 			);
 			path = "Device tracker";
 			sourceTree = "<group>";
@@ -273,7 +270,6 @@
 				584F475325394D2900810852 /* ViewController.swift in Sources */,
 				5839DB3E253A08CC00BE005D /* AddPageViewController.swift in Sources */,
 				5839DB39253A083800BE005D /* DeviceHomeTableViewController.swift in Sources */,
-				5839DB43253A4BD800BE005D /* AddPageViewController.swift in Sources */,
 				584F474F25394D2900810852 /* AppDelegate.swift in Sources */,
 				584F475925394D2900810852 /* Device_tracker.xcdatamodeld in Sources */,
 				584F475125394D2900810852 /* SceneDelegate.swift in Sources */,

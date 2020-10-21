@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Device Model Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWc-cU-JGG">
-                                <rect key="frame" x="20" y="191" width="182" height="34"/>
+                                <rect key="frame" x="20" y="191" width="157.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="qza-EU-POc"/>
                                 </constraints>
@@ -80,20 +80,31 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Qty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0My-tw-kgU">
-                                <rect key="frame" x="344" y="191" width="50" height="34"/>
+                                <rect key="frame" x="319.5" y="191" width="50" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="bal-2h-Kf3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdX-ck-FH6">
+                                <rect key="frame" x="329" y="245" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="psk-D3-vaj" eventType="touchUpInside" id="oJb-mM-yDn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mE8-uF-nSX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="NWc-cU-JGG" firstAttribute="leading" secondItem="mE8-uF-nSX" secondAttribute="leading" constant="20" id="8XT-VD-Fzr"/>
+                            <constraint firstItem="mE8-uF-nSX" firstAttribute="trailing" secondItem="MdX-ck-FH6" secondAttribute="trailing" constant="30.5" id="BJg-ef-zey"/>
+                            <constraint firstItem="mE8-uF-nSX" firstAttribute="bottom" secondItem="MdX-ck-FH6" secondAttribute="bottom" constant="587" id="XOG-QW-PaG"/>
                             <constraint firstItem="0My-tw-kgU" firstAttribute="top" secondItem="mE8-uF-nSX" secondAttribute="top" constant="103" id="ZTa-Ed-edD"/>
+                            <constraint firstItem="MdX-ck-FH6" firstAttribute="top" secondItem="0My-tw-kgU" secondAttribute="bottom" constant="20" id="dGQ-Pr-MJV"/>
                             <constraint firstItem="NWc-cU-JGG" firstAttribute="top" secondItem="mE8-uF-nSX" secondAttribute="top" constant="103" id="hXe-NV-MIe"/>
+                            <constraint firstItem="MdX-ck-FH6" firstAttribute="leading" secondItem="mE8-uF-nSX" secondAttribute="leading" constant="329" id="jbd-RG-wje"/>
                             <constraint firstItem="0My-tw-kgU" firstAttribute="leading" secondItem="NWc-cU-JGG" secondAttribute="trailing" constant="142" id="ury-NB-fLz"/>
                             <constraint firstItem="mE8-uF-nSX" firstAttribute="trailing" secondItem="0My-tw-kgU" secondAttribute="trailing" constant="20" id="wFS-vV-arv"/>
                         </constraints>

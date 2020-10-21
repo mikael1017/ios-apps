@@ -25,6 +25,17 @@ class AddPageViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
+    @IBAction func addTapped(_ sender: Any) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            let newDevice = Device(context: context)
+            if let name = DeviceNameField.text {
+                newDevice.name = name
+                //newDevice.important = importantSwitch.isOn
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                navigationController?.popViewController(animated: true)
+            }
+        }
+    }
 }
     
 extension AddPageViewController: UIPickerViewDataSource {
