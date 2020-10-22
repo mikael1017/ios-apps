@@ -49,8 +49,8 @@ class DeviceHomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var device = devices[indexPath.row]
-        cell.textLabel?.text = device.name
-            
+        let deviceQuantity = String(device.quantity)
+        cell.textLabel?.text = device.name! + "       Quantity: " + deviceQuantity
         return cell
     }
     

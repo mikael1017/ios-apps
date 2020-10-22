@@ -42,10 +42,14 @@ class AddPageViewController: UIViewController, UIImagePickerControllerDelegate, 
             let newDevice = Device(context: context)
             if let name = DeviceNameField.text {
                 newDevice.name = name
-                //newDevice.important = importantSwitch.isOn
-                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-                navigationController?.popViewController(animated: true)
             }
+            if let quantityInt = quantityField.text {
+                if let quantityInt16 = Int16(quantityInt) {
+                    newDevice.quantity = quantityInt16
+                }
+            }
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            navigationController?.popViewController(animated: true)
         }
         navigationController?.popViewController(animated: true)
     }
