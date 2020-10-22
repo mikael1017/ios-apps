@@ -8,21 +8,34 @@
 import UIKit
 
 class DeviceHomeTableViewController: UITableViewController {
-    var devices : [String:[Device]] = [:]
+    var devices : [Device] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getCoreDataInfo()
+    }
+    
+    func getCoreDataInfo() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            if let coreDatadevices = try? context.fetch(Device.fetchRequest()) as? [String:[Device]] {
-                devices = coreDatadevices
+            if let coreDataDevices = try? context.fetch(Device.fetchRequest()) as? [Device] {
+                devices = coreDataDevices
                 tableView.reloadData()
             }
         }
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let device = devices[indexPath.row]
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                context.delete(device)
+                getCoreDataInfo()
+            }
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -35,14 +48,14 @@ class DeviceHomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        var device = Array(devices.keys)[indexPath.row]
-        cell.textLabel?.text = device
+        var device = devices[indexPath.row]
+        cell.textLabel?.text = device.name
             
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedDevice = Array(devices)[indexPath.row]
+        let selectedDevice = devices[indexPath.row]
         //performSegue(withIdentifier: "goToComplete", sender: selectedToDo)
     }
     
