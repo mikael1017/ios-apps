@@ -48,11 +48,13 @@ class AddPageViewController: UIViewController, UIImagePickerControllerDelegate, 
                     newDevice.quantity = quantityInt16
                 }
             }
+            newDevice.image = imageView.image?.jpegData(compressionQuality: 1.0)
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             navigationController?.popViewController(animated: true)
         }
         navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func cameraTapped(_ sender: Any) {
         pickerController.sourceType = .camera
         present(pickerController, animated: true, completion: nil)

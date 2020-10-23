@@ -9,10 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var device : Device? = nil
+    var selectedDevice : Device?
+    @IBOutlet weak var imageField: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = selectedDevice?.name
+        if let imageData = selectedDevice?.image {
+            imageField?.image = UIImage(data: imageData)
+        }
     }
 
 

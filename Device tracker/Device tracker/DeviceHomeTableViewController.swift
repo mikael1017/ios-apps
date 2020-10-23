@@ -56,18 +56,18 @@ class DeviceHomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedDevice = devices[indexPath.row]
-        //performSegue(withIdentifier: "goToComplete", sender: selectedToDo)
+        performSegue(withIdentifier: "openDevice", sender: selectedDevice)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
         if let completeVC = segue.destination as? ViewController {
-            if let toDo = sender as? Device {
-//                completeVC.toDo = toDo
-//                completeVC.choreTableVC = self
-                
+            if let device = sender as? Device {
+                completeVC.selectedDevice = device
             }
         }
     }
+    
+    
+    
+    
 }
