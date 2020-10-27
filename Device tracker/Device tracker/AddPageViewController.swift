@@ -17,12 +17,17 @@ class AddPageViewController: UIViewController, UIImagePickerControllerDelegate, 
     var pickerController = UIImagePickerController()
     var quantities: [String] = []
     @IBOutlet weak var addButton: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         quantityPicker.dataSource = self
         quantityPicker.delegate = self
         quantityField.inputView = quantityPicker
+        
+        dismissPickerView(textField: quantityField)
+        dismissPickerView(textField: DeviceNameField)
+        
         addButton.layer.cornerRadius = addButton.bounds.size.height / 2
         for x in 1...10 {
             quantities.append(String(x))
@@ -30,13 +35,17 @@ class AddPageViewController: UIViewController, UIImagePickerControllerDelegate, 
         pickerController.delegate = self
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        quantityPicker.selectRow(0, inComponent: 0, animated: false)
+        quantityField.text = "\(quantities[quantityPicker.selectedRow(inComponent: 0)])"
+        
+    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
             imageView.image = selectedImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
     @IBAction func addTapped(_ sender: Any) {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             let newDevice = Device(context: context)
@@ -60,8 +69,38 @@ class AddPageViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(pickerController, animated: true, completion: nil)
     }
     
+    func dismissPickerView(textField: UITextField) {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        if textField == self.DeviceNameField {
+            let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelBtnClicked))
+            toolBar.setItems([cancelButton, flexibleSpace, button], animated: true)
+        } else if textField == self.quantityField {
+            let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelBtnClickedQty))
+            toolBar.setItems([cancelButton, flexibleSpace, button], animated: true)
+        }
+        toolBar.isUserInteractionEnabled = true
+        textField.inputAccessoryView = toolBar
+        
+
+    }
     
-    
+
+    @objc func cancelBtnClickedQty() {
+        
+        view.endEditing(true)
+        self.quantityField.text = nil
+    }
+    @objc func cancelBtnClicked() {
+        
+        view.endEditing(true)
+        self.DeviceNameField.text = nil
+    }
+    @objc func action() {
+        view.endEditing(true)
+    }
     
 }
     
@@ -82,6 +121,7 @@ extension AddPageViewController: UIPickerViewDataSource {
 
 extension AddPageViewController: UIPickerViewDelegate {
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        quantityPicker.selectRow(row, inComponent: component, animated: false)
         quantityField.text = quantities[row]
     }
 }
