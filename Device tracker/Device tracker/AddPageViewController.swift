@@ -24,6 +24,7 @@ class AddPageViewController: UIViewController, UIImagePickerControllerDelegate, 
         quantityPicker.dataSource = self
         quantityPicker.delegate = self
         quantityField.inputView = quantityPicker
+        quantityField.delegate = self
         
         dismissPickerView(textField: quantityField)
         dismissPickerView(textField: DeviceNameField)
@@ -37,7 +38,7 @@ class AddPageViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     override func viewDidAppear(_ animated: Bool) {
         quantityPicker.selectRow(0, inComponent: 0, animated: false)
-        quantityField.text = "\(quantities[quantityPicker.selectedRow(inComponent: 0)])"
+        
         
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -102,6 +103,11 @@ class AddPageViewController: UIViewController, UIImagePickerControllerDelegate, 
         view.endEditing(true)
     }
     
+}
+extension AddPageViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = "\(quantities[quantityPicker.selectedRow(inComponent: 0)])"
+    }
 }
     
 extension AddPageViewController: UIPickerViewDataSource {
