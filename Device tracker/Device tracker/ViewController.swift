@@ -17,7 +17,11 @@ class ViewController: UIViewController {
         if let selectedDevice = selectedDevice {
             let deviceQuantity = "\(selectedDevice.quantity)"
             let deviceName = selectedDevice.name
-            title = deviceName! + " - total: " + deviceQuantity + " devices"
+            if selectedDevice.quantity == 1 {
+                title = deviceName! + " - Total: " + deviceQuantity + " device"
+            } else {
+                title = deviceName! + " - Total: " + deviceQuantity + " devices"
+            }
             if let imageData = selectedDevice.image {
                 imageField?.image = UIImage(data: imageData)
             }
